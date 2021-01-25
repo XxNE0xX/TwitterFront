@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import HomePage from './Components/Javascripts/HomePage/HomePage.js';
+import App from './Components/Javascripts/App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-    <HomePage />,
+    <App />,
   document.getElementById('root')
 );
 
