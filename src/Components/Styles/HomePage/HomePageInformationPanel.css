@@ -2,9 +2,32 @@
     flex: 50%;
     height: 100%;
     background-color: rgb(112, 190, 237);
-    background-image: url("../../../Images/TwitterBackground.png");
+    background-image: url("../../../Images/HomePage/TwitterBackground.png");
     background-repeat: no-repeat;
     background-position: right center;
     background-size: auto;
     background-attachment: fixed;
+}
+
+.GoalsContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 33%;
+    left: 25%;
+    height: 33%;
+    max-height: 33%;
+    max-width: 50%;
+    background-color: red;
+}
+
+.Goal {
+    flex: 30%;
+    margin: 3%;
+    width: 94%;
+    background-color: aqua;
+}
+
+.GoalImage {
+
 }

@@ -1,8 +1,7 @@
 import '../../Styles/HomePage/HomePageInformationPanel.css';
-import GoalsContainer from "./GoalsContainer";
 import React from "react";
 
-export default class HomePageInformationPanel extends React.Component{
+export default class HomePageInformationPanel extends React.Component {
 
     constructor(props) {
         super(props);
@@ -10,8 +9,8 @@ export default class HomePageInformationPanel extends React.Component{
 
     render() {
         return (
-            <div className="InformationBox">
-                <GoalsContainer />
+            <div className="Goal">
+                tst
             </div>
         );
     }
