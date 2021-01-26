@@ -1,6 +1,7 @@
 import logo from '../../Images/logo.svg';
 import '../Styles/App.css';
 import React from "react";
+import 'antd/dist/antd.css';
 import HomePage from "./HomePage/HomePage";
 
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";

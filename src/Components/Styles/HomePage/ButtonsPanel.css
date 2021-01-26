@@ -1,5 +1,36 @@
-.ButtonsBox {
+.ButtonsPanel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    float: left;
     background-color: #00022e;
-    flex: 50%;
     height: 100%;
+    width: 50%;
+}
+
+@media screen and (max-width: 800px){
+    .ButtonsPanel {
+        width: 100%;
+        height: 50%;
+    }
+}
+
+.ButtonsBox {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 350px;
+    height: 110px;
+}
+
+.LoginButton {
+    color: #0068ba;
+    border: #0068ba;
+    border-style: solid;
+    background: #00022e;
+}
+
+.LoginButton:hover{
+    background: #000247;
 }
