@@ -20,6 +20,7 @@ Button {
     flex-basis: 6%;
     height: 10px !important;
     border: none !important;
+    background-color: rgba(0,0,0,0) !important;
     font-weight: bold !important;
 }
 
