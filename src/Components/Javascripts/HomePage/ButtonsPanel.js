@@ -18,6 +18,11 @@ export default class ButtonsPanel extends React.Component{
                     <br/>
                     See what’s happening in the world right now
                 </div>
+
+                <div className="joinTodayText">
+                    Join Twitter today.
+                </div>
+
                 <div className="ButtonsBox">
                     <Button className="SignupButton" shape="round" size="large"  type="primary">
                         <Link to="/signup">

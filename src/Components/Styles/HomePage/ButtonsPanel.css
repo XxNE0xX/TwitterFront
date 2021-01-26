@@ -16,11 +16,19 @@
 }
 
 .welcome-box {
-    margin: 0 auto;
+    margin: 50px auto;
     font-size: 25px;
+    font-weight: bold;
     color: white;
     width: 300px;
-    margin-bottom: 50px;
+}
+
+.joinTodayText {
+    margin: 0 auto;
+    width: 300px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
 }
 
 .home-twitter-icon {
@@ -42,6 +50,10 @@
     border-color: #0068ba;
     border-style: solid;
     background: #00022e;
+}
+
+.SignupButton, .LoginButton {
+    font-weight: bold;
 }
 
 .LoginButton:hover{
