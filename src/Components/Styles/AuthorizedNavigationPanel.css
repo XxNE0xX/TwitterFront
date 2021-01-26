@@ -16,9 +16,11 @@ Button {
     margin: 5px;
     display: flex;
     flex-direction: row;
-    flex: 0 1 5%;
-    height: 10px;
-    border: none;
+    flex-grow: 0;
+    flex-basis: 6%;
+    height: 10px !important;
+    border: none !important;
+    font-weight: bold !important;
 }
 
 .ButtonImage {
@@ -36,5 +38,5 @@ Button {
 }
 
 Button:hover{
-    background: #5299d2;
+    background: #5299d2 !important;
 }
