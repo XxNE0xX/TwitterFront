@@ -25,6 +25,7 @@ export default class HomePageInformationPanel extends React.Component {
         return (
             <div className="Goal">
                 <div className="GoalImage" style={{backgroundImage: `url(${image})`}} />
+                <div className={"Spacing"} />
                 <div className="GoalText">{this.props.text}</div>
             </div>
         );

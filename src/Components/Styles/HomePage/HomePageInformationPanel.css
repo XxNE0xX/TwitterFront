@@ -10,7 +10,7 @@
     width: 50%;
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 800px) {
     .InformationBox {
         width: 100%;
         height: 50%;
@@ -29,7 +29,7 @@
 }
 
 .Goal {
-    flex: 33%;
+    flex: 1 1 auto;
     flex-wrap: nowrap;
     display: flex;
     flex-direction: row;
@@ -39,17 +39,23 @@
 }
 
 .GoalImage {
-    flex: 15%;
-    margin: 3%;
+    flex: 1 1 10%;
+    height: 100%;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
 }
 
 .GoalText {
-    flex: 85%;
+    flex: 1 1 85%;
+    height: 100%;
     font-size: 18px;
     font-weight: bold;
     color: white;
     margin: auto;
+}
+
+.Spacing {
+    flex: 1 1 5%;
+    height: 100%;
 }
