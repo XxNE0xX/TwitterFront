@@ -12,7 +12,7 @@ export default class LoginPage extends React.Component{
     }
 
     onFinish = async (values) => {
-        const response = await fetch(`http://localhost:5630/tweeter/user/authenticate?username=${values.username}&password=${values.password}`, {
+        const response = await fetch(`http://localhost:8000/tweeter/user/authenticate?username=${values.username}&password=${values.password}`, {
             method: 'GET',
         });
         if (!response.ok)

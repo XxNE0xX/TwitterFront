@@ -1,0 +1,17 @@
+.signup-page-container {
+    background-color: #00022e;
+    height: 100%;
+    padding-top: 1%;
+}
+
+.signup-form-container {
+    margin: auto;
+    width: 300px;
+}
+
+.register-button {
+
+    width: 100%;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
