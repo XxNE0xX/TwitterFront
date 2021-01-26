@@ -2,6 +2,7 @@ import {Button} from 'antd';
 import '../../Styles/HomePage/ButtonsPanel.css';
 import React from "react";
 import {Link} from "react-router-dom";
+import {TwitterOutlined} from "@ant-design/icons";
 
 export default class ButtonsPanel extends React.Component{
 
@@ -12,6 +13,11 @@ export default class ButtonsPanel extends React.Component{
     render() {
         return (
             <div className="ButtonsPanel">
+                <div className="welcome-box">
+                    <TwitterOutlined className="home-twitter-icon"/>
+                    <br/>
+                    See what’s happening in the world right now
+                </div>
                 <div className="ButtonsBox">
                     <Button className="SignupButton" shape="round" size="large"  type="primary">
                         <Link to="/signup">
