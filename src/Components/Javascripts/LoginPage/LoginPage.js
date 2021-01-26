@@ -4,6 +4,7 @@ import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined, TwitterOutlined } from '@ant-design/icons';
 import {Link} from 'react-router-dom';
 
+
 export default class LoginPage extends React.Component{
 
     constructor(props) {
@@ -12,11 +13,15 @@ export default class LoginPage extends React.Component{
 
     onFinish = async (values) => {
         const response = await fetch(`http://localhost:5630/tweeter/user/authenticate?username=${values.username}&password=${values.password}`, {
-            mode: 'no-cors',
+            method: 'GET',
         });
-        const json = await response.json();
-        console.log(json);
-
+        if (!response.ok)
+            alert("Incorrect username and password.")
+        else{
+            const json = await response.json();
+            console.log(json);
+            this.props.authorizer();
+        }
     };
 
     render() {
