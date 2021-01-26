@@ -10,9 +10,13 @@ export default class LoginPage extends React.Component{
         super(props);
     }
 
-    onFinish = (values) => {
-        //TODO: send values to server
-        console.log('Received values of form: ', values);
+    onFinish = async (values) => {
+        const response = await fetch(`http://localhost:5630/tweeter/user/authenticate?username=${values.username}&password=${values.password}`, {
+            mode: 'no-cors',
+        });
+        const json = await response.json();
+        console.log(json);
+
     };
 
     render() {
