@@ -29,18 +29,18 @@
 }
 
 .Goal {
-    flex: 30%;
+    flex: 33%;
+    flex-wrap: nowrap;
     display: flex;
     flex-direction: row;
     align-content: flex-start;
-    padding: 5px;
+    padding: 0px;
     width: 100%;
 }
 
 .GoalImage {
     flex: 15%;
-    height: 100%;
-    /*background-image: url("../../../Images/HomePage/Search.png");*/
+    margin: 3%;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
