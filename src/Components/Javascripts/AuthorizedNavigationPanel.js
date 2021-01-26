@@ -13,28 +13,28 @@ export default class AuthorizedNavigationPanel extends React.Component{
     render() {
         return (
             <div className="NavigationContainer">
-                <Button className={"TwitterLogo"} shape={"circle"}>
-                    <Link to={"/"}>
-                        <TwitterOutlined />
+                <Button className={"LogoButton"} shape={"circle"}>
+                    <Link to={"/feed"}>
+                        <Icon text={"TwitterLogo"} />
                     </Link>
                 </Button>
-                <Button shape={"round"}>
-                    <Link to={"/"}>
+                <Button className={"NavigationButton"} shape={"round"}>
+                    <Link to={"/feed"}>
                         <Icon text={"Home"} />
                     </Link>
                 </Button>
-                <Button shape={"round"}>
+                <Button className={"NavigationButton"} shape={"round"}>
                     <Link to={"/profile"}>
                         <Icon text={"Profile"} />
                     </Link>
                 </Button>
-                <Button shape={"round"} style={{backgroundColor:"#5299d2", width:"100%"}}>
+                <Button className={"TweetButton"} shape={"round"}>
                     <Link to={"/compose/tweet"}>
                         <Icon text={"Tweet"} />
                     </Link>
                 </Button>
                 <div className={"Spacing"} />
-                <Button shape={"round"} style={{marginLeft:"20px", width:"100%"}}>
+                <Button className={"NavigationButton"} shape={"round"} style={{marginLeft:"20px", width:"100%"}}>
                     <Link to={"/profile"}>
                         <Icon text={"Profile"} />
                     </Link>
@@ -53,10 +53,10 @@ class Icon extends React.Component {
     render() {
         return (
             <div>
-                {this.props.text === "Home" ? <HomeOutlined className={"ButtonImage"}/> : null}
-                {this.props.text === "Profile" ? <UserOutlined className={"ButtonImage"}/> : null}
-                &nbsp;&nbsp;
-                    {this.props.text}
+                {this.props.text === "Home" ? <HomeOutlined /> : null}
+                {this.props.text === "Profile" ? <UserOutlined /> : null}
+                {this.props.text !== "TwitterLogo" ? <span> &nbsp;&nbsp;{this.props.text} </span> : <TwitterOutlined />}
+
             </div>
         );
     }
