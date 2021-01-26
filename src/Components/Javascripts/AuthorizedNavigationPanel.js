@@ -33,6 +33,12 @@ export default class AuthorizedNavigationPanel extends React.Component{
                         <Icon text={"Tweet"} />
                     </Link>
                 </Button>
+                <div className={"Spacing"} />
+                <Button shape={"round"} style={{marginLeft:"20px", width:"100%"}}>
+                    <Link to={"/profile"}>
+                        <Icon text={"Profile"} />
+                    </Link>
+                </Button>
             </div>
         );
     }
