@@ -26,16 +26,30 @@
     height: 33%;
     max-height: 33%;
     max-width: 50%;
-    background-color: red;
 }
 
 .Goal {
     flex: 30%;
-    margin: 3%;
-    width: 94%;
-    background-color: aqua;
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    padding: 5px;
+    width: 100%;
 }
 
 .GoalImage {
+    flex: 15%;
+    height: 100%;
+    /*background-image: url("../../../Images/HomePage/Search.png");*/
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
 
+.GoalText {
+    flex: 85%;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin: auto;
 }

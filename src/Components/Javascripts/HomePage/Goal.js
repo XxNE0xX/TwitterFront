@@ -1,5 +1,6 @@
 import '../../Styles/HomePage/HomePageInformationPanel.css';
 import React from "react";
+import icon from "../../../Images/HomePage/Search.png";
 
 export default class HomePageInformationPanel extends React.Component {
 
@@ -10,7 +11,8 @@ export default class HomePageInformationPanel extends React.Component {
     render() {
         return (
             <div className="Goal">
-                tst
+                <div className="GoalImage" style={{backgroundImage: `url(${this.props.iconPath})`}}/>
+                <div className="GoalText">{this.props.text}</div>
             </div>
         );
     }
