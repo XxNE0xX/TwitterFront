@@ -1,6 +1,7 @@
 import {Button} from 'antd';
 import '../../Styles/HomePage/ButtonsPanel.css';
 import React from "react";
+import {Link} from "react-router-dom";
 
 export default class ButtonsPanel extends React.Component{
 
@@ -13,9 +14,15 @@ export default class ButtonsPanel extends React.Component{
             <div className="ButtonsPanel">
                 <div className="ButtonsBox">
                     <Button className="SignupButton" shape="round" size="large"  type="primary">
-                        Sign up
+                        <Link to="/signup">
+                            Sign up
+                        </Link>
                     </Button>
-                    <Button className="LoginButton" shape="round" size="large">Log in</Button>
+                    <Button className="LoginButton" shape="round" size="large">
+                        <Link to="/login">
+                            Log in
+                        </Link>
+                    </Button>
                 </div>
             </div>
         );
