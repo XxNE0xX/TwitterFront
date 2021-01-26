@@ -1,57 +1,47 @@
-import logo from '../../Images/logo.svg';
 import '../Styles/App.css';
 import React from "react";
 import 'antd/dist/antd.css';
 import HomePage from "./HomePage/HomePage";
 import LoginPage from "./LoginPage/LoginPage";
-import SignupPage from "./SignupPage/SignupPage";
-import TweetsPage from "./TweetsPage/TweetsPage";
+import SignupPage from "./SignupPage/SignupPage"
 import Feed from "./Feed";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 
-class App extends React.Component{
+class App extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-        authorized: false,
+    constructor(props) {
+        super(props);
+        this.state = {
+            authorized: false,
+        }
     }
-  }
 
-  authorizer = () => {
-      this.setState({
-          authorized: true,
-      })
-  }
+    authorizer = () => {
+        this.setState({
+            authorized: true,
+        })
+    }
 
-  render() {
-    return (
-        this.state.authorized ?
-            <TweetsPage />
-            :
-            <Router>
-              <Switch>
-                <Route path={"/"} exact component={HomePage} />
-                  <Route path={"/login"} exact>
-                      <LoginPage authorizer={this.authorizer} />
-                  </Route>
-                <Route path="/signup" exact>
-                    <SignupPage authorizer={this.authorizer} />
-                </Route>
-              </Switch>
-            </Router>
+    render() {
+        return (
+            this.state.authorized ?
+                <Feed />
+                :
+                <Router>
+                    <Switch>
+                        <Route path={"/"} exact component={HomePage}/>
+                        <Route path={"/feed"} exact component={Feed}/>
+                        <Route path={"/login"} exact>
+                            <LoginPage authorizer={this.authorizer}/>
+                        </Route>
+                        <Route path="/signup" exact>
+                            <SignupPage authorizer={this.authorizer}/>
+                        </Route>
+                    </Switch>
+                </Router>
         );
-        <Router>
-          <Switch>
-            <Route path={"/"} exact component={HomePage} />
-            <Route path={"/login"} exact component={LoginPage} />
-            <Route path={"/signup"} exact component={SignupPage} />
-            <Route path={"/feed"} component={Feed} />
-          </Switch>
-        </Router>
-    );
-  }
+    }
 }
 
 export default App;
