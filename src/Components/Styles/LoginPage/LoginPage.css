@@ -1,0 +1,36 @@
+.LoginPageContainer {
+    background-color: #00022e;
+    height: 100%;
+    padding-top: 1%;
+}
+
+.twitter-icon {
+    font-size: 60px;
+    color: white;
+    margin: auto;
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.form-container {
+    margin: auto;
+    width: 300px;
+}
+
+.checkbox-remember-me {
+    color: blue;
+    visibility: hidden;
+}
+
+.login-form-forgot {
+    visibility: hidden;
+}
+
+.login-form-button {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.register-container {
+    text-align: center;
+}
