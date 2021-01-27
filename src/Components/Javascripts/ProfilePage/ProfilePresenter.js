@@ -76,10 +76,10 @@ class UserInformationPanel extends React.Component {
     render() {
         return (
             <div className="UserInformationPanel">
-                <div className={"UsersName"}>
+                <div className={"ProfileNickname"}>
                     {this.props.UsersName}
                 </div>
-                <div className={"Username"}>
+                <div className={"ProfileUsername"}>
                     @{this.props.Username}
                 </div>
                 <div className={"Bio"}>
