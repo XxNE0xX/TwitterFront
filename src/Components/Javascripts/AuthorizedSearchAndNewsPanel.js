@@ -14,6 +14,52 @@ export default class AuthorizedSearchAndNewsPanel extends React.Component {
         }
     }
 
+    followButtonHandler = async () => {
+        if (this.props.user.username === this.state.username)
+            return;
+
+        let i;
+        for (i = 0; i < this.props.user.followingsUsername.length;i= i+1) {
+            if (this.props.user.followingsUsername[i] === this.state.username){
+                return;
+            }
+        }
+
+        const response = await fetch('http://localhost:8000/tweeter/user/follow',{
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({followedUsername: this.state.username, followerUsername: this.props.user.username})
+        });
+        if (response.ok){
+            console.log("follow operation successful.");
+            const response2 = await fetch(`http://localhost:8000/tweeter/user/authenticate?username=${this.props.user.username}&password=${this.props.user.password}`, {
+                method: 'GET',
+            });
+            if (!response2.ok)
+                alert("Incorrect username and password.")
+            else{
+                const json = await response2.json();
+                console.log(json);
+                this.props.authorizer({
+                    name: json.name,
+                    username: json.username,
+                    password: this.props.user.password,
+                    followersUsername: json.followersUsername,
+                    followingsUsername: json.followingsUsername,
+                    likedTweets: json.likedTweets,
+                    tweets: json.tweets,
+                    reTweets: json.reTweets,
+                    timeline: json.timeline,
+                });
+            }
+        }
+        else
+            console.log("follow operation failed.")
+    }
+
     onSearch = async (value) => {
         const response = await fetch(`http://localhost:8000/tweeter/user?username=${value}`);
         const data = await response.json();
@@ -54,7 +100,7 @@ export default class AuthorizedSearchAndNewsPanel extends React.Component {
                             <i>{this.state.nickname}</i>
                         </div>
                         <div className={"follow-button-holder"}>
-                            <Button shape={"round"} type={"primary"}>Follow!</Button>
+                            <Button onClick={this.followButtonHandler} shape={"round"} type={"primary"}>Follow!</Button>
                         </div>
                     </div>
                     :

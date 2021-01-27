@@ -25,7 +25,7 @@ export default class LoginPage extends React.Component{
                 username: json.username,
                 password: values.password,
                 followersUsername: json.followersUsername,
-                followingsUsername: json.followersUsername,
+                followingsUsername: json.followingsUsername,
                 likedTweets: json.likedTweets,
                 tweets: json.tweets,
                 reTweets: json.reTweets,
