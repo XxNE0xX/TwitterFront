@@ -20,7 +20,7 @@ export default class LoginPage extends React.Component{
         else{
             const json = await response.json();
             console.log(json);
-            this.props.authorizer();
+            this.props.authorizer({username: json.username, name: json.name});
         }
     };
 

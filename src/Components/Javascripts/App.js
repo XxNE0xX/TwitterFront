@@ -14,12 +14,14 @@ class App extends React.Component {
         super(props);
         this.state = {
             authorized: false,
+            user: null,
         }
     }
 
-    authorizer = () => {
+    authorizer = (user) => {
         this.setState({
             authorized: true,
+            user: user
         })
     }
 
@@ -31,7 +33,13 @@ class App extends React.Component {
                 <Router>
                     <Switch>
                         <Route path={"/"} exact component={HomePage}/>
-                        <Route path={"/feed"} exact component={Feed}/>
+                        <Route path={"/feed"} exact>
+                            {this.state.authorized ?
+                                <Feed authorized={this.state.authorized} />
+                                :
+                                <HomePage/>
+                            }
+                        </Route>
                         <Route path={"/login"} exact>
                             <LoginPage authorizer={this.authorizer}/>
                         </Route>

@@ -22,7 +22,7 @@ export default class SignupPage extends React.Component{
         });
         if (response.ok){
             console.log("ok");
-            this.props.authorizer();
+            this.props.authorizer({name: values.nickname, username: values.username});
         }
         else
             alert("Username is already taken.")

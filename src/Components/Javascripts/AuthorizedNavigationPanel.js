@@ -14,30 +14,30 @@ export default class AuthorizedNavigationPanel extends React.Component{
         return (
             <div className="NavigationContainer">
                 <Button className={"LogoButton"} shape={"circle"}>
-                    <Link to={"/feed"}>
+                    {/*<Link to={"/feed"}>*/}
                         <Icon text={"TwitterLogo"} />
-                    </Link>
+                    {/*</Link>*/}
                 </Button>
                 <Button className={"NavigationButton"} shape={"round"}>
-                    <Link to={"/feed"}>
+                    {/*<Link to={"/feed"}>*/}
                         <Icon text={"Home"} />
-                    </Link>
+                    {/*</Link>*/}
                 </Button>
                 <Button className={"NavigationButton"} shape={"round"}>
-                    <Link to={"/profile"}>
+                    {/*<Link to={"/profile"}>*/}
                         <Icon text={"Profile"} />
-                    </Link>
+                    {/*</Link>*/}
                 </Button>
                 <Button className={"TweetButton"} shape={"round"}>
-                    <Link to={"/compose/tweet"}>
+                    {/*<Link to={"/compose/tweet"}>*/}
                         <Icon text={"Tweet"} />
-                    </Link>
+                    {/*</Link>*/}
                 </Button>
                 <div className={"Spacing"} />
                 <Button className={"NavigationButton"} shape={"round"} style={{marginLeft:"20px", width:"100%"}}>
-                    <Link to={"/profile"}>
+                    {/*<Link to={"/profile"}>*/}
                         <Icon text={"Profile"} />
-                    </Link>
+                    {/*</Link>*/}
                 </Button>
             </div>
         );
