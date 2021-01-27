@@ -104,3 +104,7 @@
     background: rgb(20, 41, 58) !important;
     color: rgb(11, 118, 184) !important;
 }
+
+.ProfileTweets {
+    align-self: center;
+}

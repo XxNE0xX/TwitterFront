@@ -27,7 +27,7 @@ export default class FFPage extends React.Component {
             <div className="FFPage">
                 <AuthorizedNavigationPanel authorizer={this.props.authorizer} pathSetter={this.props.pathSetter} user={this.props.user}/>
                 <div className={"FFPageContainer"}>
-                    <NicknameUsername Nickname={"Shalqam"} Username={"_sh99"}/>
+                    <NicknameUsername Nickname={this.props.user.name} Username={this.props.user.username}/>
                     <FollowingFollowersButtonsBar showFollowingFunc={this.showFollowing} showFollowersFunc={this.showFollowers}/>
 
                     <div className={"FollowingFollowersContainer"}>
@@ -35,7 +35,7 @@ export default class FFPage extends React.Component {
                     </div>
 
                 </div>
-                <AuthorizedSearchAndNewsPanel/>
+                <AuthorizedSearchAndNewsPanel user={this.props.user}/>
             </div>
         );
     }

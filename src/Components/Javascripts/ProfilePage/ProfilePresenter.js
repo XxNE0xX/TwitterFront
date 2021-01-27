@@ -2,12 +2,13 @@ import "../../Styles/ProfilePage/ProfilePresenter.css";
 
 import defaultCover from "../../../Images/DefaultCover.jpg";
 import defaultProfilePicture from "../../../Images/DefaultProfilePicture.jpg";
+import FeedTweetsContainer from "../Tweet/FeedTweetsContainer";
 
 import Tweet from "../Tweet/Tweet";
 import {Button} from "antd";
 import React from "react";
 
-export default class FeedTweetsContainer extends React.Component {
+export default class ProfilePresenter extends React.Component {
 
     constructor(props) {
         super(props);
@@ -33,14 +34,9 @@ export default class FeedTweetsContainer extends React.Component {
             <div className="ProfilePresenterContainer">
                 <img src={defaultCover} className={"CoverPicture"} />
                 <ButtonsBar isFollowed={true} profilePicturePath={defaultProfilePicture} FollowingButtonHandler={this.FollowingButtonHandler} FollowerButtonHandler={this.FollowerButtonHandler}/>
-                <UserInformationPanel UsersName={"Shalqam"} Username={"_Sh99"} Bio={"I'm a great dev!"} />
+                <UserInformationPanel UsersName={this.props.user.name} Username={this.props.user.username} Bio={"I'm a great dev!"} />
                 <TweetsButtonsBar />
-                {/*{tweets}*/}
-                <Tweet/>
-                <Tweet/>
-                <Tweet/>
-                <Tweet/>
-                <Tweet/>
+                <FeedTweetsContainer className={"ProfileTweets"} tweetIDs={this.props.user.tweets} />
             </div>
         );
     }

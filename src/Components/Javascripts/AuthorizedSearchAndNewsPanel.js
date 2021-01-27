@@ -18,12 +18,6 @@ export default class AuthorizedSearchAndNewsPanel extends React.Component {
     followButtonHandler = async () => {
         if (this.props.user.username === this.state.username)
             return;
-        // let i;
-        // for (i = 0; i < this.props.user.followingsUsername.length;i= i+1) {
-        //     if (this.props.user.followingsUsername[i] === this.state.username){
-        //         return;
-        //     }
-        // }
 
         let url_ending = (this.state.follow_unfollow === "Follow!") ? "follow" : "unFollow";
 
@@ -87,8 +81,9 @@ export default class AuthorizedSearchAndNewsPanel extends React.Component {
             const data2 = await response2.json();
             if (response2.ok && data2.users.length === 1){
                 let i, uf=false;
+                console.log(this.props.user)
                 for (i = 0; i < this.props.user.followingsUsername.length;i= i+1) {
-                    if (this.props.user.followingsUsername[i] === data.users[0].username){
+                    if (this.props.user.followingsUsername[i] === data2.users[0].username){
                         uf = true;
                     }
                 }
