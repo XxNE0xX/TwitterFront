@@ -1,6 +1,8 @@
 import {Button} from 'antd';
 import '../Styles/AuthorizedNavigationPanel.css';
 import React from "react";
+import { Input } from 'antd';
+
 import {Link, Router} from "react-router-dom";
 import {TwitterOutlined, HomeOutlined, UserOutlined} from "@ant-design/icons";
 
@@ -8,6 +10,9 @@ export default class AuthorizedNavigationPanel extends React.Component{
 
     constructor(props) {
         super(props);
+        this.state={
+            value:""
+        }
     }
 
     profileButtonHandler = () => {
@@ -18,7 +23,41 @@ export default class AuthorizedNavigationPanel extends React.Component{
         this.props.pathSetter("edit-profile")
     }
 
+    onChange = ({ target: { value } }) => {
+        this.setState({ value });
+    };
+
+    composeTweet = async () => {
+        const response = await fetch(`http://localhost:8000/tweeter/tweet`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                body: this.state.value,
+                ownerUsername: this.props.user.username,
+                hashtags: [],
+                time: "2020-10-13 10:20:30",
+                mentions: []
+            })
+        });
+        if (response.ok){
+            console.log("ok");
+            const json = await response.json();
+            console.log(json);
+        }
+        else
+            console.log("tweet not created.")
+        this.setState({
+            value: ''
+        })
+    }
+
     render() {
+        const { TextArea } = Input;
+        const { value } = this.state;
+
         return (
             <div className="NavigationContainer">
                 <Button className={"LogoButton"} shape={"circle"}>
@@ -34,10 +73,12 @@ export default class AuthorizedNavigationPanel extends React.Component{
                 <Button onClick={this.profileButtonHandler} className={"NavigationButton"} shape={"round"}>
                             <Icon text={"Profile"} />
                 </Button>
-                <Button className={"TweetButton"} shape={"round"}>
-                    {/*<Link to={"/compose/tweet"}>*/}
+                <div className={"tweet-text-area-container"}>
+                    <TextArea value={value} onChange={this.onChange} placeholder={"Say what is in your mind!"} autoSize={{ minRows: 5, maxRows: 5 }} showCount maxLength={250} />
+                </div>
+
+                <Button onClick={this.composeTweet} className={"TweetButton"} shape={"round"}>
                         <Icon text={"Tweet"} />
-                    {/*</Link>*/}
                 </Button>
                 <div className={"Spacing"} />
                 <Button onClick={this.editProfilePageHandler} className={"NavigationButton"} shape={"round"} style={{marginLeft:"20px", width:"100%"}}>
