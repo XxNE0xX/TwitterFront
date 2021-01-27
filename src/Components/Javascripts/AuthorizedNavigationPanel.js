@@ -1,13 +1,17 @@
 import {Button} from 'antd';
 import '../Styles/AuthorizedNavigationPanel.css';
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link, Router} from "react-router-dom";
 import {TwitterOutlined, HomeOutlined, UserOutlined} from "@ant-design/icons";
 
 export default class AuthorizedNavigationPanel extends React.Component{
 
     constructor(props) {
         super(props);
+    }
+
+    profileButtonHandler = () => {
+        this.props.pathSetter("profile");
     }
 
     render() {
@@ -23,10 +27,8 @@ export default class AuthorizedNavigationPanel extends React.Component{
                         <Icon text={"Home"} />
                     {/*</Link>*/}
                 </Button>
-                <Button className={"NavigationButton"} shape={"round"}>
-                    {/*<Link to={"/profile"}>*/}
-                        <Icon text={"Profile"} />
-                    {/*</Link>*/}
+                <Button onClick={this.profileButtonHandler} className={"NavigationButton"} shape={"round"}>
+                            <Icon text={"Profile"} />
                 </Button>
                 <Button className={"TweetButton"} shape={"round"}>
                     {/*<Link to={"/compose/tweet"}>*/}
@@ -34,10 +36,8 @@ export default class AuthorizedNavigationPanel extends React.Component{
                     {/*</Link>*/}
                 </Button>
                 <div className={"Spacing"} />
-                <Button className={"NavigationButton"} shape={"round"} style={{marginLeft:"20px", width:"100%"}}>
-                    {/*<Link to={"/profile"}>*/}
+                <Button onClick={this.profileButtonHandler} className={"NavigationButton"} shape={"round"} style={{marginLeft:"20px", width:"100%"}}>
                         <Icon text={"Profile"} />
-                    {/*</Link>*/}
                 </Button>
             </div>
         );
