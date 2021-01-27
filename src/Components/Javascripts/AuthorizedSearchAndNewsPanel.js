@@ -10,22 +10,24 @@ export default class AuthorizedSearchAndNewsPanel extends React.Component {
         this.state = {
             visible:false,
             username: "",
-            nickname: ""
+            nickname: "",
+            follow_unfollow: "Follow!"
         }
     }
 
     followButtonHandler = async () => {
         if (this.props.user.username === this.state.username)
             return;
+        // let i;
+        // for (i = 0; i < this.props.user.followingsUsername.length;i= i+1) {
+        //     if (this.props.user.followingsUsername[i] === this.state.username){
+        //         return;
+        //     }
+        // }
 
-        let i;
-        for (i = 0; i < this.props.user.followingsUsername.length;i= i+1) {
-            if (this.props.user.followingsUsername[i] === this.state.username){
-                return;
-            }
-        }
+        let url_ending = (this.state.follow_unfollow === "Follow!") ? "follow" : "unFollow";
 
-        const response = await fetch('http://localhost:8000/tweeter/user/follow',{
+        const response = await fetch(`http://localhost:8000/tweeter/user/${url_ending}`,{
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
@@ -43,6 +45,9 @@ export default class AuthorizedSearchAndNewsPanel extends React.Component {
             else{
                 const json = await response2.json();
                 console.log(json);
+                this.setState({
+                    follow_unfollow: (url_ending === "follow"? "Unfollow!":"Follow!")
+                })
                 this.props.authorizer({
                     name: json.name,
                     username: json.username,
@@ -64,20 +69,34 @@ export default class AuthorizedSearchAndNewsPanel extends React.Component {
         const response = await fetch(`http://localhost:8000/tweeter/user?username=${value}`);
         const data = await response.json();
         if (response.ok && data.users.length === 1){
+            let i, uf=false;
+            for (i = 0; i < this.props.user.followingsUsername.length;i= i+1) {
+                if (this.props.user.followingsUsername[i] === data.users[0].username){
+                    uf = true;
+                }
+            }
             this.setState({
                 visible: true,
                 username: data.users[0].username,
-                nickname: data.users[0].name
+                nickname: data.users[0].name,
+                follow_unfollow: (uf? "Unfollow!":"Follow!")
             })
         }
         else{
             const response2 = await fetch(`http://localhost:8000/tweeter/user?name=${value}`);
             const data2 = await response2.json();
             if (response2.ok && data2.users.length === 1){
+                let i, uf=false;
+                for (i = 0; i < this.props.user.followingsUsername.length;i= i+1) {
+                    if (this.props.user.followingsUsername[i] === data.users[0].username){
+                        uf = true;
+                    }
+                }
                 this.setState({
                     visible: true,
                     username: data2.users[0].username,
-                    nickname: data2.users[0].name
+                    nickname: data2.users[0].name,
+                    follow_unfollow: (uf? "Unfollow!":"Follow!")
                 })
             }
             else
@@ -100,7 +119,7 @@ export default class AuthorizedSearchAndNewsPanel extends React.Component {
                             <i>{this.state.nickname}</i>
                         </div>
                         <div className={"follow-button-holder"}>
-                            <Button onClick={this.followButtonHandler} shape={"round"} type={"primary"}>Follow!</Button>
+                            <Button onClick={this.followButtonHandler} shape={"round"} type={"primary"}>{this.state.follow_unfollow}</Button>
                         </div>
                     </div>
                     :
