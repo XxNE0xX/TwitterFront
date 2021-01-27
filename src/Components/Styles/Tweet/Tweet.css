@@ -4,7 +4,8 @@
     align-items: center;
     margin-bottom: 6px;
     width: 100%;
-    min-height: 300px;
+    height: content-box;
+    min-height: 100px;
     border: thin solid antiquewhite;
     color: white;
 }
@@ -13,7 +14,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    padding-top: 10px;
     height: 20%;
+    min-height: 50px;
     width: 100%;
     /*border: thin solid red;*/
     color: white;
@@ -51,6 +54,7 @@
     align-items: center;
     justify-content: space-around;
     height: 20%;
+    min-height: 50px;
     width: 80%;
     /*border: thin solid purple;*/
     color: white;
