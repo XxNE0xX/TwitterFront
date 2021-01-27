@@ -17,6 +17,7 @@ class App extends React.Component {
         super(props);
         this.state = {
             path: "feed",
+            showFollowing: true,
             authorized: false,
             user: null,
         }
@@ -35,12 +36,20 @@ class App extends React.Component {
         })
     }
 
+    followingShowStatusSetter = (followingShowStatus) => {
+        this.setState({showFollowing: followingShowStatus})
+    }
+
     render() {
         let p;
         if (this.state.path === "profile")
-            p = <ProfilePage pathSetter={this.pathSetter} user={this.state.user}/>
+            p = <ProfilePage pathSetter={this.pathSetter} user={this.state.user} followingShowStatusSetter={this.followingShowStatusSetter} />
         else if (this.state.path === "edit-profile")
             p = <EditProfilePage pathSetter={this.pathSetter} user={this.state.user}/>
+        else if (this.state.path === "FFPage")
+            p = <FFPage pathSetter={this.pathSetter} user={this.state.user}/>
+        else if (this.state.path === "feed")
+            p = <Feed authorizer={this.authorizer} pathSetter={this.pathSetter} user={this.state.user}/>
         else
             p = <Feed authorizer={this.authorizer} pathSetter={this.pathSetter} user={this.state.user}/>
 
@@ -66,14 +75,14 @@ class App extends React.Component {
                         </Route>
                         <Route path={"/profile"} exact>
                             {this.state.authorized ?
-                                <ProfilePage />
+                                <ProfilePage authorizer={this.authorizer} pathSetter={this.pathSetter} user={this.state.user} followingShowStatusSetter={this.followingShowStatusSetter} />
                                 :
                                 <HomePage/>
                             }
                         </Route>
                         <Route path={"/profile/FFPage"} exact>
                             {this.state.authorized ?
-                                <FFPage />
+                                <FFPage authorizer={this.authorizer} pathSetter={this.pathSetter} user={this.state.user} />
                                 :
                                 <HomePage/>
                             }

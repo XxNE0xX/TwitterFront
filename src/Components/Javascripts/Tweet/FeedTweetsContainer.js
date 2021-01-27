@@ -14,11 +14,15 @@ export default class FeedTweetsContainer extends React.Component{
             console.log(tweetID)
             return <Tweet key={tweetID} tweetID={tweetID}/>
         }
-
         )
         return (
             <div className="FeedTweetsContainer">
                 {tweets}
+                {/*<Tweet />*/}
+                {/*<Tweet />*/}
+                {/*<Tweet />*/}
+                {/*<Tweet />*/}
+                {/*<Tweet />*/}
             </div>
         );
     }

@@ -1,5 +1,8 @@
 import "../../Styles/ProfilePage/ProfilePresenter.css";
 
+import defaultCover from "../../../Images/DefaultCover.jpg";
+import defaultProfilePicture from "../../../Images/DefaultProfilePicture.jpg";
+
 import Tweet from "../Tweet/Tweet";
 import {Button} from "antd";
 import React from "react";
@@ -10,6 +13,16 @@ export default class FeedTweetsContainer extends React.Component {
         super(props);
     }
 
+    FollowingButtonHandler = () => {
+        this.props.pathSetter("FFPage");
+        this.props.followingShowStatusSetter(true);
+    }
+
+    FollowerButtonHandler = () => {
+        this.props.pathSetter("FFPage");
+        this.props.followingShowStatusSetter(false);
+    }
+
     render() {
         // const tweets = this.props.tweetIDs.reverse().map((tweetID)=>{
         //     console.log(tweetID)
@@ -18,8 +31,8 @@ export default class FeedTweetsContainer extends React.Component {
         // )
         return (
             <div className="ProfilePresenterContainer">
-                <img src={"../../../Images/HomePage/TwitterIconWhite.png"} className={"CoverPicture"}/>
-                <ButtonsBar isFollowed={true} profilePicturePath={""}/>
+                <img src={defaultCover} className={"CoverPicture"} />
+                <ButtonsBar isFollowed={true} profilePicturePath={defaultProfilePicture} FollowingButtonHandler={this.FollowingButtonHandler} FollowerButtonHandler={this.FollowerButtonHandler}/>
                 <UserInformationPanel UsersName={"Shalqam"} Username={"_Sh99"} Bio={"I'm a great dev!"} />
                 <TweetsButtonsBar />
                 {/*{tweets}*/}
@@ -44,10 +57,10 @@ class ButtonsBar extends React.Component {
             <div className="ButtonsBar">
                 <img className={"ProfilePicture"} src={this.props.profilePicturePath}/>
                 <div className={"ButtonsBarButtonContainer"}>
-                    <Button className={"FollowingFollowersButtons"} shape={"round"}>
+                    <Button className={"FollowingFollowersButtons"} shape={"round"} onClick={this.props.FollowingButtonHandler}>
                         Followings
                     </Button>
-                    <Button className={"FollowingFollowersButtons"} shape={"round"}>
+                    <Button className={"FollowingFollowersButtons"} shape={"round"} onClick={this.props.FollowerButtonHandler}>
                         Followers
                     </Button>
                     <Button className={"FollowUnfollowButton"} shape={"round"}>
