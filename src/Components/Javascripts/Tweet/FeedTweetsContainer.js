@@ -15,6 +15,8 @@ export default class HomePage extends React.Component{
                 <Tweet />
                 <Tweet />
                 <Tweet />
+                <Tweet />
+                <Tweet />
             </div>
         );
     }

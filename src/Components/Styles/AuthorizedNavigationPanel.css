@@ -3,9 +3,7 @@
     flex-direction: column;
     align-items: flex-start;
     scroll-behavior: auto;
-    padding-left: 2%;
-    padding-right: 2%;
-    position: sticky;
+    width: 200px;
 }
 
 .LogoButton {
@@ -19,16 +17,20 @@
 }
 
 .NavigationButton {
-    margin: 5px;
+    margin: 0 5px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    flex-grow: 0;
     flex-basis: 40px;
     border: none !important;
     background-color: rgba(0,0,0,0);
     font-weight: bold !important;
     color: white !important;
+}
+
+#editProfileButton {
+    width: 80%;
+    align-self: center;
 }
 
 .tweet-text-area-container {
@@ -37,9 +39,9 @@
 }
 
 .TweetButton {
-    margin: 5px;
     display: inline-block;
-    width: 100%;
+    width: 90%;
+    align-self: center;
     border: none !important;
     background-color: #5299d2 !important;
     font-weight: bold !important;
