@@ -1,9 +1,37 @@
-.TweetsContainer {
-    margin: 0;
-    height: 100%;
+.TweetMessage {
     display: flex;
     flex-direction: column;
-    flex: 1 1 60%;
+    height: 40%;
+    width: 100%;
+    margin-bottom: 6px;
     border: thin solid antiquewhite;
     color: white;
+}
+
+.UsernameSection {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 20%;
+    width: 100%;
+    border: thin solid antiquewhite;
+    color: white;
+}
+
+.ProfilePhoto {
+    margin-left: 10px;
+    height: 40px;
+}
+
+.UsersName{
+    font-weight: bold;
+    color: white;
+}
+
+.Username {
+    color: grey;
+}
+
+.Time {
+    color: grey;
 }

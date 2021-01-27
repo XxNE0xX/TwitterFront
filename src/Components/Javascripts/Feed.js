@@ -1,6 +1,6 @@
 import '../Styles/Feed.css';
 import AuthorizedNavigationPanel from "./AuthorizedNavigationPanel";
-import Tweet from "./Tweet/Tweet";
+import FeedTweetsContainer from "./Tweet/FeedTweetsContainer";
 import AuthorizedSearchAndNewsPanel from "./AuthorizedSearchAndNewsPanel";
 
 import React from "react";
@@ -13,9 +13,9 @@ export default class Feed extends React.Component{
 
     render() {
         return (
-            <div className="MainContainer">
+            <div className="FeedContainer">
                 <AuthorizedNavigationPanel pathSetter={this.props.pathSetter} user={this.props.user}/>
-                <Tweet />
+                <FeedTweetsContainer />
                 <AuthorizedSearchAndNewsPanel />
             </div>
         );

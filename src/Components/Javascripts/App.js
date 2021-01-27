@@ -49,13 +49,19 @@ class App extends React.Component {
                 :
                 <Router>
                     <Switch>
-                        <Route path={"/"} exact component={HomePage}/>
-                        <Route path={"/feed"} exact>
+                        <Route path={"/"} exact>
                             {this.state.authorized ?
-                                <Feed pathSetter={this.pathSetter} user={this.state.user}/>
+                                <Feed pathSetter={this.pathSetter}/>
                                 :
-                                <HomePage/>
+                                <HomePage />
                             }
+                        </Route>
+                        <Route path={"/feed"} exact>
+                            {/*{this.state.authorized ?*/}
+                                <Feed pathSetter={this.pathSetter} user={this.state.user}/>
+                            {/*    :*/}
+                            {/*    <HomePage />*/}
+                            {/*}*/}
                         </Route>
                         <Route path={"/profile"} exact>
                             {this.state.authorized ?

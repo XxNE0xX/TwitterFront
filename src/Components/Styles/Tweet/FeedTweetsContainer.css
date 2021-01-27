@@ -1,0 +1,7 @@
+.FeedTweetsContainer {
+    margin: 0;
+    display: block;
+    flex-basis: 60%;
+    border: thin solid antiquewhite;
+    color: white;
+}

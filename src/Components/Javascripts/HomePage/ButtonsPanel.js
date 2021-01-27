@@ -10,6 +10,14 @@ export default class ButtonsPanel extends React.Component{
         super(props);
     }
 
+    // signupButtonHandler = () => {
+    //     this.props.pathSetter("signup");
+    // }
+    //
+    // loginButtonHandler = () => {
+    //     this.props.pathSetter("login");
+    // }
+
     render() {
         return (
             <div className="ButtonsPanel">
