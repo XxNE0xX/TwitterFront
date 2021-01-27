@@ -14,6 +14,10 @@ export default class AuthorizedNavigationPanel extends React.Component{
         this.props.pathSetter("profile");
     }
 
+    editProfilePageHandler = () => {
+        this.props.pathSetter("edit-profile")
+    }
+
     render() {
         return (
             <div className="NavigationContainer">
@@ -36,8 +40,8 @@ export default class AuthorizedNavigationPanel extends React.Component{
                     {/*</Link>*/}
                 </Button>
                 <div className={"Spacing"} />
-                <Button onClick={this.profileButtonHandler} className={"NavigationButton"} shape={"round"} style={{marginLeft:"20px", width:"100%"}}>
-                        <Icon text={"Profile"} />
+                <Button onClick={this.editProfilePageHandler} className={"NavigationButton"} shape={"round"} style={{marginLeft:"20px", width:"100%"}}>
+                        <Icon text={"Edit Profile"} />
                 </Button>
             </div>
         );
