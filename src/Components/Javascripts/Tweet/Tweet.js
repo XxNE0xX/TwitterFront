@@ -10,16 +10,42 @@ export default class Tweet extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state ={
+            body: "",
+            time: "",
+            uuid: "",
+            ownerUsername: "",
+            likedBy: [],
+            retweetedBy: [],
+            hashtags: [],
+            mentions: []
+        }
+    }
+
+    async componentDidMount() {
+        const response = await fetch(`http://localhost:8000/tweeter/tweet/${this.props.tweetID}`);
+        const data = await response.json();
+        this.setState({
+            body: data.body,
+            time: data.time,
+            uuid: data.uuid,
+            ownerUsername: data.ownerUsername,
+            likedBy: data.likedBy,
+            retweetedBy: data.retweetedBy,
+            hashtags: data.hashtags,
+            mentions: data.mentions
+        })
+
     }
 
     render() {
         return (
             <div className="TweetMessage">
-                <UsernameSection ProfilePicture={""} UsersName={"Shalqam"} Username={"_Sh99"} Time={"13h"} />
+                <UsernameSection tweetData={this.state} ProfilePicture={""} UsersName={"Shalqam"} Username={"_Sh99"} Time={"13h"} />
                 <div className={"TweetBody"}>
-                    this is a test.
+                    {this.state.body}
                 </div>
-                <TweetCommandsBar CommentsCount={"1"} RetweetsCount={"20"} LikesCount={"150"} />
+                <TweetCommandsBar tweetData={this.state} CommentsCount={"1"} RetweetsCount={"20"} LikesCount={"150"} />
             </div>
         );
     }
@@ -42,15 +68,15 @@ class UsernameSection extends React.Component {
                 </Button>
                 &nbsp;
                 <div className={"UsersName"}>
-                    {this.props.UsersName}
+                    {this.props.tweetData.ownerUsername}
                 </div>
                 &nbsp;
                 <div className={"Username"}>
-                    @{this.props.Username}
+                    @{this.props.tweetData.ownerUsername}
                 </div>
                 &nbsp;
                 <div className={"Time"}>
-                    {this.props.Time}
+                    {this.props.tweetData.time}
                 </div>
             </div>
         );
@@ -68,19 +94,19 @@ class TweetCommandsBar extends React.Component {
                 <Button className={"CommandsButton"} id={"CommentButton"} shape={"circle"}>
                     <MessageOutlined />
                     <span>
-                        {this.props.CommentsCount}
+
                     </span>
                 </Button>
                 <Button className={"CommandsButton"} id={"RetweetButton"} shape={"circle"}>
                     <SyncOutlined />
                     <span>
-                        {this.props.RetweetsCount}
+                        {this.props.tweetData.retweetedBy.length}
                     </span>
                 </Button>
                 <Button className={"CommandsButton"} id={"LikeButton"} shape={"circle"}>
                     <HeartOutlined />
                     <span>
-                        {this.props.LikesCount}
+                        {this.props.tweetData.likedBy.length}
                     </span>
                 </Button>
                 <Button className={"CommandsButton"} id={"ShareTweetButton"} shape={"circle"}>

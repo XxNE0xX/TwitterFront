@@ -3,20 +3,22 @@ import '../../Styles/Tweet/FeedTweetsContainer.css';
 import Tweet from "./Tweet";
 import React from "react";
 
-export default class HomePage extends React.Component{
+export default class FeedTweetsContainer extends React.Component{
 
     constructor(props) {
         super(props);
     }
 
     render() {
+        const tweets = this.props.tweetIDs.reverse().map((tweetID)=>{
+            console.log(tweetID)
+            return <Tweet key={tweetID} tweetID={tweetID}/>
+        }
+
+        )
         return (
             <div className="FeedTweetsContainer">
-                <Tweet />
-                <Tweet />
-                <Tweet />
-                <Tweet />
-                <Tweet />
+                {tweets}
             </div>
         );
     }

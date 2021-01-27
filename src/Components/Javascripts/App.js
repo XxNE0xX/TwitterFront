@@ -41,7 +41,7 @@ class App extends React.Component {
         else if (this.state.path === "edit-profile")
             p = <EditProfilePage pathSetter={this.pathSetter} user={this.state.user}/>
         else
-            p = <Feed pathSetter={this.pathSetter} user={this.state.user}/>
+            p = <Feed authorizer={this.authorizer} pathSetter={this.pathSetter} user={this.state.user}/>
 
         return (
             this.state.authorized ?
@@ -51,14 +51,14 @@ class App extends React.Component {
                     <Switch>
                         <Route path={"/"} exact>
                             {this.state.authorized ?
-                                <Feed pathSetter={this.pathSetter}/>
+                                <Feed authorizer={this.authorizer} pathSetter={this.pathSetter} user={this.state.user}/>
                                 :
                                 <HomePage />
                             }
                         </Route>
                         <Route path={"/feed"} exact>
                             {this.state.authorized ?
-                                <Feed pathSetter={this.pathSetter} user={this.state.user}/>
+                                <Feed authorizer={this.authorizer} pathSetter={this.pathSetter} user={this.state.user}/>
                                 :
                                 <HomePage />
                             }

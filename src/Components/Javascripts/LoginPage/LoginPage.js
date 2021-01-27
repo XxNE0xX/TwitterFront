@@ -20,7 +20,17 @@ export default class LoginPage extends React.Component{
         else{
             const json = await response.json();
             console.log(json);
-            this.props.authorizer({username: json.username, name: json.name});
+            this.props.authorizer({
+                name: json.name,
+                username: json.username,
+                password: values.password,
+                followersUsername: json.followersUsername,
+                followingsUsername: json.followersUsername,
+                likedTweets: json.likedTweets,
+                tweets: json.tweets,
+                reTweets: json.reTweets,
+                timeline: json.timeline,
+            });
         }
     };
 
@@ -63,15 +73,6 @@ export default class LoginPage extends React.Component{
                                 placeholder="Password"
                             />
                         </Form.Item>
-                        {/*<Form.Item>*/}
-                        {/*    <Form.Item name="remember" valuePropName="checked" noStyle>*/}
-                        {/*        <Checkbox className="checkbox-remember-me">Remember me</Checkbox>*/}
-                        {/*    </Form.Item>*/}
-
-                        {/*    <a className="login-form-forgot" href="">*/}
-                        {/*        Forgot password*/}
-                        {/*    </a>*/}
-                        {/*</Form.Item>*/}
 
                         <Form.Item>
                             <Button type="primary" htmlType="submit" shape="round" size="large" className="login-form-button">
