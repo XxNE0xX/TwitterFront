@@ -1,0 +1,106 @@
+.ProfilePresenterContainer {
+    margin: 10px 40px;
+    display: flex;
+    width: 40%;
+    min-width: 500px;
+    max-width: 800px;
+    flex-direction: column;
+    color: white;
+}
+
+.CoverPicture {
+    width: 100%;
+    height: 200px;
+}
+
+.ButtonsBar {
+    display: flex;
+    padding: 0 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ButtonsBarButtonContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.FollowingFollowersButtons {
+    width: auto;
+    max-width: 100px;
+    text-align: center;
+    border: none !important;
+    background-color: rgba(0,0,0,0);
+    font-weight: bold !important;
+    color: white !important;
+}
+
+.FollowingFollowersButtons:hover{
+    background: rgb(20, 41, 58) !important;
+    color: rgb(11, 118, 184) !important;
+}
+
+.ProfilePicture {
+    margin-top: -50px;
+    height: 100px;
+    width: 100px;
+}
+
+.FollowUnfollowButton {
+    width: auto;
+    max-width: 100px;
+    text-align: center;
+    border: none !important;
+    background-color: #5299d2 !important;
+    font-weight: bold !important;
+    color: white !important;
+}
+
+.FollowUnfollowButton:hover {
+    background-color: #d25276 !important;
+}
+
+.UserInformationPanel {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.UsersName {
+    font-weight: bold;
+    color: white;
+    font-size: 24px;
+}
+
+.Username {
+    color: grey;
+    font-size: 20px;
+}
+
+.Bio {
+    color: white;
+    font-size: 16px;
+}
+
+.TweetsButtonsBar {
+    display: flex;
+    padding: 0 10px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.TweetsRetweetsButton {
+    flex: 1;
+    max-width: 100px;
+    text-align: center;
+    border: none !important;
+    background-color: rgba(0,0,0,0);
+    font-weight: bold !important;
+    color: white !important;
+}
+
+.TweetsRetweetsButton:hover{
+    background: rgb(20, 41, 58) !important;
+    color: rgb(11, 118, 184) !important;
+}

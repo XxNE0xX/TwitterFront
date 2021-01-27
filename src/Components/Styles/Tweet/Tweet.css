@@ -4,7 +4,6 @@
     align-items: center;
     margin-bottom: 6px;
     width: 100%;
-    height: content-box;
     min-height: 150px;
     border: thin solid antiquewhite;
     color: white;
@@ -41,7 +40,6 @@
 }
 
 .TweetBody {
-    flex-grow: 1;
     width: 80%;
     align-self: center;
     min-height: 50px;
