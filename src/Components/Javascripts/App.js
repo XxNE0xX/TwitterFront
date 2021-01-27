@@ -6,6 +6,7 @@ import LoginPage from "./LoginPage/LoginPage";
 import SignupPage from "./SignupPage/SignupPage"
 import EditProfilePage from "./EditProfilePage/EditProfilePage"
 import ProfilePage from "./ProfilePage/ProfilePage"
+import FFPage from "./ProfilePage/FFPage";
 import Feed from "./Feed";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
@@ -44,7 +45,7 @@ class App extends React.Component {
             p = <Feed authorizer={this.authorizer} pathSetter={this.pathSetter} user={this.state.user}/>
 
         return (
-            this.state.authorized ?
+            this.state.authorized ? 
                 p
                 :
                 <Router>
@@ -66,6 +67,13 @@ class App extends React.Component {
                         <Route path={"/profile"} exact>
                             {this.state.authorized ?
                                 <ProfilePage />
+                                :
+                                <HomePage/>
+                            }
+                        </Route>
+                        <Route path={"/profile/FFPage"} exact>
+                            {this.state.authorized ?
+                                <FFPage />
                                 :
                                 <HomePage/>
                             }

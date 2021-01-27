@@ -1,0 +1,74 @@
+.FFPage {
+    margin: 0;
+    height: 100vh;
+    overflow: auto;
+    display: flex;
+    padding: 0 40px;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgb(21, 32, 43);
+}
+
+.FFPageContainer {
+    margin: 10px 40px;
+    display: flex;
+    width: 40%;
+    min-width: 500px;
+    max-width: 800px;
+    flex-direction: column;
+    color: white;
+}
+
+.FFNicknameUsernameBox {
+    display: flex;
+    flex-direction: column;
+}
+
+.FFPageNickname {
+    font-weight: bold;
+    color: white;
+    font-size: 24px;
+}
+
+.FFPageUsername {
+    color: grey;
+    font-size: 16px;
+}
+
+.FollowingFollowersButtonsBar {
+    display: flex;
+    padding: 0 10px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.FollowingFollowersButton {
+    flex: 1;
+    max-width: 100px;
+    text-align: center;
+    border: none !important;
+    background-color: rgba(0,0,0,0);
+    font-weight: bold !important;
+    color: white !important;
+}
+
+.FollowingFollowersButton:hover{
+    background: rgb(20, 41, 58) !important;
+    color: rgb(11, 118, 184) !important;
+}
+
+.FollowingFollowersButton:focus {
+    background-color: rgba(0,0,0,0);
+    color: white !important;
+    border-bottom: medium solid rgb(11, 118, 184) !important;
+}
+
+.FollowingFollowersContainer {
+    margin: 10px 40px;
+    display: flex;
+    width: 40%;
+    min-width: 500px;
+    max-width: 800px;
+    flex-direction: column;
+    color: white;
+}

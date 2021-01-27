@@ -82,7 +82,7 @@ class UserInformationPanel extends React.Component {
                 <div className={"ProfileUsername"}>
                     @{this.props.Username}
                 </div>
-                <div className={"Bio"}>
+                <div className={"ProfileBio"}>
                     {this.props.Bio}
                 </div>
             </div>
