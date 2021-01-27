@@ -57,11 +57,11 @@ class App extends React.Component {
                             }
                         </Route>
                         <Route path={"/feed"} exact>
-                            {/*{this.state.authorized ?*/}
+                            {this.state.authorized ?
                                 <Feed pathSetter={this.pathSetter} user={this.state.user}/>
-                            {/*    :*/}
-                            {/*    <HomePage />*/}
-                            {/*}*/}
+                                :
+                                <HomePage />
+                            }
                         </Route>
                         <Route path={"/profile"} exact>
                             {this.state.authorized ?
