@@ -1,8 +1,7 @@
-import {Input, Icon} from "semantic-ui-react"
+import {Button, Input, Space} from 'antd';
 import '../Styles/AuthorizedSearchAndNewsPanel.css';
 import React from "react";
-import {Link} from "react-router-dom";
-import {SearchOutlined} from "@ant-design/icons";
+
 
 export default class AuthorizedSearchAndNewsPanel extends React.Component {
 
@@ -15,10 +14,21 @@ export default class AuthorizedSearchAndNewsPanel extends React.Component {
     }
 
     render() {
+        const { Search } = Input;
         return (
             <div className="SearchAndNewsContainer">
-                <Input icon={<Icon name='search' inverted circular link />} iconPosition='left' placeholder={"Search Twitter"} style={{backgroundColor:"red", marginTop:"10px"}} />
-                <div className={"Spacing"} />
+                <Search className={"SearchBox"} placeholder="Find People!" onSearch={this.onSearch} enterButton />
+
+                <div className={"search-result"} >
+                    <div className={"photo-holder"}> </div>
+                    <div className={"username-nickname-holder"}>
+                        @username <br/>
+                        <i>nickname</i>
+                    </div>
+                    <div className={"follow-button-holder"}>
+                        <Button shape={"round"} type={"primary"}>Follow!</Button>
+                    </div>
+                </div>
             </div>
         );
     }
