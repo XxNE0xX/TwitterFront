@@ -3,7 +3,7 @@
     height: 100vh;
     overflow: auto;
     display: flex;
-    padding: 0 1%;
+    padding: 0 20px;
     flex-direction: row;
     background-color: rgb(21, 32, 43);
 }

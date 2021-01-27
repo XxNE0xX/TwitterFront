@@ -41,6 +41,8 @@
     flex-grow: 1;
     width: 80%;
     align-self: center;
+    font-family: HelveticaNeue Arial sans-serif;
+    font-size: 16px;
 }
 
 .TweetCommandsBar {
