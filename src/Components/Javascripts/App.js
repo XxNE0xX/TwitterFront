@@ -74,18 +74,18 @@ class App extends React.Component {
                             }
                         </Route>
                         <Route path={"/profile"} exact>
-                            {/*{this.state.authorized ?*/}
+                            {this.state.authorized ?
                                 <ProfilePage authorizer={this.authorizer} pathSetter={this.pathSetter} user={this.state.user} followingShowStatusSetter={this.followingShowStatusSetter} />
-                            {/*    :*/}
-                            {/*    <HomePage/>*/}
-                            {/*}*/}
+                                :
+                                <HomePage/>
+                            }
                         </Route>
                         <Route path={"/profile/FFPage"} exact>
-                            {/*{this.state.authorized ?*/}
+                            {this.state.authorized ?
                                 <FFPage authorizer={this.authorizer} pathSetter={this.pathSetter} user={this.state.user} />
-                            {/*    :*/}
-                            {/*    <HomePage/>*/}
-                            {/*}*/}
+                                :
+                                <HomePage/>
+                            }
                         </Route>
                         <Route path={"/login"} exact>
                             <LoginPage authorizer={this.authorizer}/>
