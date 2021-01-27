@@ -15,9 +15,8 @@ export default class Feed extends React.Component{
         return (
             <div className="FeedContainer">
                 <AuthorizedNavigationPanel authorizer={this.props.authorizer} pathSetter={this.props.pathSetter} user={this.props.user}/>
-                {/*<FeedTweetsContainer tweetIDs={this.props.user.timeline} />*/}
-                <FeedTweetsContainer />
-                <AuthorizedSearchAndNewsPanel />
+                <FeedTweetsContainer tweetIDs={this.props.user.timeline} />
+                <AuthorizedSearchAndNewsPanel authorizer={this.props.authorizer} user={this.props.user} />
             </div>
         );
     }

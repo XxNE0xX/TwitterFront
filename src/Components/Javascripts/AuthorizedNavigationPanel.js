@@ -70,7 +70,7 @@ export default class AuthorizedNavigationPanel extends React.Component{
                     username: json.username,
                     password: this.props.user.password,
                     followersUsername: json.followersUsername,
-                    followingsUsername: json.followersUsername,
+                    followingsUsername: json.followingsUsername,
                     likedTweets: json.likedTweets,
                     tweets: json.tweets,
                     reTweets: json.reTweets,
