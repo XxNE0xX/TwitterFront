@@ -11,13 +11,8 @@ export default class HomePage extends React.Component{
     }
 
     render() {
-        let d = new Date();
         return (
             <div className="MainContainer">
-                <div>
-                    {d.getFullYear() + "-" + (d.getMonth()+1).toString() + "-" + d.getDate().toString() + " " + d.getHours().toString() + ":" + d.getMinutes().toString() + ":" + d.getSeconds().toString()}
-
-                </div>
                 <HomePageInformationPanel />
                 <ButtonsPanel />
             </div>
