@@ -44,7 +44,6 @@ export default class Tweet extends React.Component {
                 <UsernameSection tweetData={this.state} ProfilePicture={""} UsersName={"Shalqam"} Username={"_Sh99"} Time={"13h"} />
                 <div className={"TweetBody"}>
                     {this.state.body}
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium.
                 </div>
                 <TweetCommandsBar tweetData={this.state} CommentsCount={"1"} RetweetsCount={"20"} LikesCount={"150"} />
             </div>

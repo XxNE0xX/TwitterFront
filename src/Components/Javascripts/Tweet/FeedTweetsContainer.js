@@ -10,19 +10,19 @@ export default class FeedTweetsContainer extends React.Component{
     }
 
     render() {
-        // const tweets = this.props.tweetIDs.reverse().map((tweetID)=>{
-        //     console.log(tweetID)
-        //     return <Tweet key={tweetID} tweetID={tweetID}/>
-        // }
-        // )
+        const tweets = this.props.tweetIDs.reverse().map((tweetID)=>{
+            console.log(tweetID)
+            return <Tweet key={tweetID} tweetID={tweetID}/>
+        }
+        )
         return (
             <div className="FeedTweetsContainer">
-                {/*{tweets}*/}
-                <Tweet />
-                <Tweet />
-                <Tweet />
-                <Tweet />
-                <Tweet />
+                {tweets}
+                {/*<Tweet />*/}
+                {/*<Tweet />*/}
+                {/*<Tweet />*/}
+                {/*<Tweet />*/}
+                {/*<Tweet />*/}
             </div>
         );
     }
