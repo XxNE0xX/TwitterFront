@@ -15,7 +15,7 @@ export default class ProfilePage extends React.Component{
         return (
             <div className="ProfilePageContainer">
                 <AuthorizedNavigationPanel authorizer={this.props.authorizer} pathSetter={this.props.pathSetter} user={this.props.user}/>
-                <ProfilePresenter />
+                <ProfilePresenter authorizer={this.props.authorizer} pathSetter={this.props.pathSetter} user={this.props.user} followingShowStatusSetter={this.props.followingShowStatusSetter}/>
                 <AuthorizedSearchAndNewsPanel />
             </div>
         );

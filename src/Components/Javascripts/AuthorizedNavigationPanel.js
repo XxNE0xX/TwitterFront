@@ -23,6 +23,10 @@ export default class AuthorizedNavigationPanel extends React.Component{
         this.props.pathSetter("edit-profile")
     }
 
+    homePageHandler = () => {
+        this.props.pathSetter("feed")
+    }
+
     onChange = ({ target: { value } }) => {
         this.setState({ value });
     };
@@ -88,12 +92,12 @@ export default class AuthorizedNavigationPanel extends React.Component{
         return (
             <div className="NavigationContainer">
                 <div className={"buttons-container"}>
-                    <Button className={"LogoButton"} shape={"circle"}>
+                    <Button className={"LogoButton"} onClick={this.homePageHandler} shape={"circle"}>
                         {/*<Link to={"/feed"}>*/}
                         <Icon text={"TwitterLogo"} />
                         {/*</Link>*/}
                     </Button>
-                    <Button size={"large"} className={"NavigationButton"} shape={"round"}>
+                    <Button size={"large"} onClick={this.homePageHandler} className={"NavigationButton"} shape={"round"}>
                         {/*<Link to={"/feed"}>*/}
                         <Icon text={"Home"} />
                         {/*</Link>*/}
