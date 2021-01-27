@@ -43,7 +43,9 @@
 }
 
 .tweet-text-area-container {
+    align-self: center;
     width: 100%;
+    max-width: 300px;
     height: 150px;
 }
 
