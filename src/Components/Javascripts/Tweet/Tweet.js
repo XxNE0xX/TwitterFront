@@ -45,6 +45,7 @@ export default class Tweet extends React.Component {
     }
 
     render() {
+        // console.log(this.state.body)
         let cond =  this.props.user.username ===  this.state.ownerUsername
         return (
             cond ?
@@ -124,6 +125,7 @@ class TweetCommandsBar extends React.Component {
     }
 
     render() {
+
         return (
             <div className="TweetCommandsBar">
                 <Button className={"CommandsButton"} id={"CommentButton"} shape={"circle"}>

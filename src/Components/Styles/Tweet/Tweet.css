@@ -44,6 +44,8 @@
     align-self: center;
     font-family: HelveticaNeue Arial sans-serif;
     font-size: 16px;
+    white-space: pre-wrap;
+
 }
 
 .TweetCommandsBar {

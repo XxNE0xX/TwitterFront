@@ -32,7 +32,7 @@ export default class AuthorizedNavigationPanel extends React.Component {
     };
 
     composeTweet = async () => {
-        if (this.value !== "") {
+        if (this.state.value !== "") {
             let d = new Date();
             let month = ((d.getMonth() + 1) > 9) ? (d.getMonth() + 1).toString() : "0" + (d.getMonth() + 1).toString()
             let date = (d.getDate() > 9) ? (d.getDate().toString()) : "0" + d.getDate().toString()
@@ -94,9 +94,7 @@ export default class AuthorizedNavigationPanel extends React.Component {
             <div className="NavigationContainer">
                 <div className={"buttons-container"}>
                     <Button className={"LogoButton"} onClick={this.props.refreshPage} shape={"circle"}>
-                        <Link to="/feed">
                             <Icon text={"TwitterLogo"}/>
-                        </Link>
                     </Button>
                     <Button size={"large"} onClick={this.homePageHandler} className={"NavigationButton"}
                             shape={"round"}>
