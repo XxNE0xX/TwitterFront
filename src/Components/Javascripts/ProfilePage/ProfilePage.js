@@ -1,5 +1,5 @@
 import '../../Styles/ProfilePage/ProfilePage.css';
-import AuthorizedNavigationPanel from "..//AuthorizedNavigationPanel";
+import AuthorizedNavigationPanel from "../AuthorizedNavigationPanel";
 import AuthorizedSearchAndNewsPanel from "../AuthorizedSearchAndNewsPanel";
 import ProfilePresenter from "./ProfilePresenter";
 
@@ -16,7 +16,7 @@ export default class ProfilePage extends React.Component{
             <div className="ProfilePageContainer">
                 <AuthorizedNavigationPanel authorizer={this.props.authorizer} pathSetter={this.props.pathSetter} user={this.props.user}/>
                 <ProfilePresenter authorizer={this.props.authorizer} pathSetter={this.props.pathSetter} user={this.props.user} followingShowStatusSetter={this.props.followingShowStatusSetter}/>
-                <AuthorizedSearchAndNewsPanel user={this.props.user} />
+                <AuthorizedSearchAndNewsPanel authorizer={this.props.authorizer} user={this.props.user} />
             </div>
         );
     }

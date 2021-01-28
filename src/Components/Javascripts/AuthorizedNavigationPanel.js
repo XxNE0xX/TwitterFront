@@ -3,7 +3,6 @@ import '../Styles/AuthorizedNavigationPanel.css';
 import React from "react";
 import { Input } from 'antd';
 
-import {Link, Router} from "react-router-dom";
 import {TwitterOutlined, HomeOutlined, UserOutlined} from "@ant-design/icons";
 
 export default class AuthorizedNavigationPanel extends React.Component{
@@ -60,7 +59,7 @@ export default class AuthorizedNavigationPanel extends React.Component{
             const response2 = await fetch(`http://localhost:8000/tweeter/user/authenticate?username=${this.props.user.username}&password=${this.props.user.password}`, {
                 method: 'GET',
             });
-            if (!response.ok)
+            if (!response2.ok)
                 alert("Incorrect username and password.")
             else{
                 const json = await response2.json();
@@ -92,15 +91,11 @@ export default class AuthorizedNavigationPanel extends React.Component{
         return (
             <div className="NavigationContainer">
                 <div className={"buttons-container"}>
-                    <Button className={"LogoButton"} onClick={this.homePageHandler} shape={"circle"}>
-                        {/*<Link to={"/feed"}>*/}
+                    <Button className={"LogoButton"} onClick={this.props.refreshPage} shape={"circle"}>
                         <Icon text={"TwitterLogo"} />
-                        {/*</Link>*/}
                     </Button>
                     <Button size={"large"} onClick={this.homePageHandler} className={"NavigationButton"} shape={"round"}>
-                        {/*<Link to={"/feed"}>*/}
                         <Icon text={"Home"} />
-                        {/*</Link>*/}
                     </Button>
                     <Button size={"large"} onClick={this.profileButtonHandler} className={"NavigationButton"} shape={"round"}>
                         <Icon text={"Profile"} />

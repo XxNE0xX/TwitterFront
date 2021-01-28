@@ -36,7 +36,7 @@ export default class ProfilePresenter extends React.Component {
                 <ButtonsBar isFollowed={true} profilePicturePath={defaultProfilePicture} FollowingButtonHandler={this.FollowingButtonHandler} FollowerButtonHandler={this.FollowerButtonHandler}/>
                 <UserInformationPanel UsersName={this.props.user.name} Username={this.props.user.username} Bio={"I'm a great dev!"} />
                 <TweetsButtonsBar />
-                <FeedTweetsContainer className={"ProfileTweets"} tweetIDs={this.props.user.tweets} />
+                <FeedTweetsContainer className={"ProfileTweets"} authorizer={this.props.authorizer} user={this.props.user} tweetIDs={this.props.user.tweets} />
             </div>
         );
     }

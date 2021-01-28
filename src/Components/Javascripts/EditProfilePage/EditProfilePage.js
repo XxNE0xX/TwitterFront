@@ -48,11 +48,11 @@ export default class EditProfilePage extends React.Component{
                             rules={[
                                 {
                                     required: true,
-                                    message: 'Please input your username!',
+                                    message: 'Pick a new username.',
                                 },
                             ]}
                         >
-                            <label style={{fontSize: "14px", color:"white"}}>Pick yourself a username:
+                            <label style={{fontSize: "14px", color:"white"}}>Pick a new username:
                                 <Input />
                             </label>
                         </Form.Item>
@@ -63,12 +63,12 @@ export default class EditProfilePage extends React.Component{
                             rules={[
                                 {
                                     required: true,
-                                    message: 'Please input your password!',
+                                    message: 'Please input your new password!',
                                 },
                             ]}
                             hasFeedback
                         >
-                            <label style={{fontSize: "14px", color:"white"}}>Enter a password:
+                            <label style={{fontSize: "14px", color:"white"}}>Enter your new password:
                                 <Input.Password />
                             </label>
                         </Form.Item>
@@ -81,7 +81,7 @@ export default class EditProfilePage extends React.Component{
                             rules={[
                                 {
                                     required: true,
-                                    message: 'Please confirm your password!',
+                                    message: 'Please confirm your new password!',
                                 },
                                 ({ getFieldValue }) => ({
                                     validator(_, value) {
@@ -94,7 +94,7 @@ export default class EditProfilePage extends React.Component{
                             ]}
                         >
                             <label style={{color:"white", fontSize:"14px"}}>
-                                Confimr your password:<Input.Password />
+                                Confirm your new password:<Input.Password />
                             </label>
 
                         </Form.Item>
@@ -102,10 +102,10 @@ export default class EditProfilePage extends React.Component{
                         <Form.Item
                             name="nickname"
                             label={" "}
-                            rules={[{ required: true, message: 'Please input your nickname!', whitespace: true }]}
+                            rules={[{ required: true, message: 'Please input your new nickname!', whitespace: true }]}
                         >
                             <label style={{color:"white", fontSize:"14px"}}>
-                                Pick yourself a nickname: <Tooltip title="What do you want others to call you?">
+                                Enter your new nickname: <Tooltip title="What do you want others to call you?">
                                 <QuestionCircleOutlined />
                             </Tooltip>
                                 <Input />
@@ -115,10 +115,9 @@ export default class EditProfilePage extends React.Component{
 
                         <Form.Item>
                             <Button type="primary" size={"large"} htmlType="submit" shape={"round"} className={"register-button"}>
-                                Register
+                                Change my info!
                             </Button>
                             <div className="register-container">
-                                <Link to="/login">Already have an account? Login here!</Link>
                             </div>
                         </Form.Item>
                     </Form>
