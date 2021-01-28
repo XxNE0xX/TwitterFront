@@ -45,7 +45,7 @@ class App extends React.Component {
         if (this.state.path === "profile")
             p = <ProfilePage authorizer={this.authorizer} pathSetter={this.pathSetter} user={this.state.user} followingShowStatusSetter={this.followingShowStatusSetter} />
         else if (this.state.path === "edit-profile")
-            p = <EditProfilePage pathSetter={this.pathSetter} user={this.state.user}/>
+            p = <EditProfilePage authorizer={this.authorizer} pathSetter={this.pathSetter} user={this.state.user}/>
         else if (this.state.path === "FFPage")
             p = <FFPage authorizer={this.authorizer} pathSetter={this.pathSetter} user={this.state.user}/>
         else if (this.state.path === "feed")

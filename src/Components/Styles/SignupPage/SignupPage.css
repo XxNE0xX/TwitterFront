@@ -10,8 +10,22 @@
 }
 
 .register-button {
-
     width: 100%;
     margin-bottom: 10px;
     margin-left: 10px;
+}
+
+.edit-cancel-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.edit-button{
+   margin-right: 10px;
+    margin-left:20px;
+}
+
+.cancel-button{
+
 }

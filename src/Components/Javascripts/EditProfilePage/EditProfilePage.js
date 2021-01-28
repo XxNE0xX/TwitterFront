@@ -11,22 +11,50 @@ export default class EditProfilePage extends React.Component{
 
     }
 
-    onFinish = async (values) => {}
-    //     const response = await fetch(`http://localhost:8000/tweeter/user`, {
-    //         method: 'POST',
-    //         headers: {
-    //             'Accept': 'application/json',
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({name: values.nickname, username: values.username, password: values.password})
-    //     });
-    //     if (response.ok){
-    //         console.log("ok");
-    //         this.props.authorizer({name: values.nickname, username: values.username});
-    //     }
-    //     else
-    //         alert("Username is already taken.")
-    // }
+    loadFeed = () => {
+        this.props.pathSetter("feed")
+    }
+
+    onFinish = async (values) => {
+        const response = await fetch(`http://localhost:8000/tweeter/user/${this.props.user.username}`, {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                newUsername: values.username,
+                newName: values.nickname,
+                newPassword: values.password})
+        });
+        if (response.ok){
+            console.log("ok");
+            const response2 = await fetch(`http://localhost:8000/tweeter/user/authenticate?username=${values.username}&password=${values.password}`, {
+                method: 'GET',
+            });
+            if (!response2.ok)
+                alert("Incorrect username and password.")
+            else{
+                const json = await response2.json();
+                console.log(json);
+                this.props.authorizer({
+                    name: json.name,
+                    username: json.username,
+                    password: values.password,
+                    followersUsername: json.followersUsername,
+                    followingsUsername: json.followingsUsername,
+                    likedTweets: json.likedTweets,
+                    tweets: json.tweets,
+                    reTweets: json.reTweets,
+                    timeline: json.timeline,
+                });
+            }
+        }
+        else
+            alert("Username is already taken.")
+
+        this.props.pathSetter("feed")
+    }
 
     render() {
         return (
@@ -112,14 +140,15 @@ export default class EditProfilePage extends React.Component{
                             </label>
 
                         </Form.Item>
+                        <div className={"edit-cancel-container"}>
+                            <Form.Item>
+                                <Button type="primary" size={"large"} htmlType="submit" shape={"round"} className={"edit-button"}>
+                                    Change my info!
+                                </Button>
 
-                        <Form.Item>
-                            <Button type="primary" size={"large"} htmlType="submit" shape={"round"} className={"register-button"}>
-                                Change my info!
-                            </Button>
-                            <div className="register-container">
-                            </div>
-                        </Form.Item>
+                            </Form.Item>
+                            <Button onClick={this.loadFeed} className={"cancel-button"} size={"large"} shape={"round"}>Cancel</Button>
+                        </div>
                     </Form>
                 </div>
 
