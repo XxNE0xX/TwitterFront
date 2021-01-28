@@ -72,3 +72,16 @@
     flex-direction: column;
     color: white;
 }
+
+.ffcontainer {
+    display: flex;
+    flex-direction: row;
+    width: 55%;
+    align-self: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+    margin-top: 10px;
+    border: solid thin white;
+    border-radius: 10px;
+}
